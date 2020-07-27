@@ -4,12 +4,9 @@ import ApiFetch from './Requisito4';
 
 function App() {
   return (
-
-      <div>
+    <div>
       <CarrinhoVazio />
       <ApiFetch />
-
-
     </div>
   );
 }

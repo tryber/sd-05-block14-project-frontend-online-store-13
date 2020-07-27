@@ -1,10 +1,10 @@
 import React from 'react';
-import CarrinhoHeader from './componentes/CarrinhoHeader';
+import CarrinhoVazio from './componentes/CarrinhoVazio';
 
 function App() {
   return (
     <div>
-      <CarrinhoHeader />
+      <CarrinhoVazio />
     </div>
   );
 }

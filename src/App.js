@@ -1,12 +1,10 @@
 import React from 'react';
-import CarrinhoVazio from './componentes/CarrinhoVazio';
-import ApiFetch from './Requisito4';
+import Card5 from './componentes/card5';
 // Função principal
 function App() {
   return (
     <div>
-      <CarrinhoVazio />
-      <ApiFetch />
+     <Card5 />
     </div>
   );
 }

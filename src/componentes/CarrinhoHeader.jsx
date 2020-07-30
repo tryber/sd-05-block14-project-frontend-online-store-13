@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from './Image';
-import './Carrinho.css';
+import '../css/Carrinho.css';
 
 class CarrinhoHeader extends React.Component {
   render() {

@@ -6,9 +6,11 @@ class APICategories extends React.Component {
     super(props);
     this.state = {};
   }
+
   componentDidMount() {
     api.getCategories().then((categorias) => this.setState({ myCateg: categorias }));
   }
+
   render() {
     const { myCateg } = this.state;
     return myCateg ? (

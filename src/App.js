@@ -1,6 +1,6 @@
 import React from 'react';
 import CarrinhoVazio from './componentes/CarrinhoVazio';
-import ApiFetch from './componentes/Requisito4';
+import ApiFetch from './componentes/Categories';
 import SearchBar from './componentes/SearchBar';
 
 function App() {

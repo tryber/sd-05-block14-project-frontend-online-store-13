@@ -18,9 +18,9 @@ class SearchBar extends Component {
   //   })
   // }
   async pesquisar() {
-    await api.getProductsFromCategoryAndQuery(this.state.search).then((aux) => 
-      this.setState({ results: aux.results })
-    )
+    await api.getProductsFromCategoryAndQuery(this.state.search).then((aux) =>
+      this.setState({ results: aux.results }),
+    );
   }
   render() {
     return (
@@ -33,7 +33,7 @@ class SearchBar extends Component {
           type="text"
           data-testid="query-input"
         />
-        <button onClick={()=> this.pesquisar()}data-testid="query-button">PESQUISAR</button>
+        <button onClick={() => this.pesquisar()}data-testid="query-button">PESQUISAR</button>
         <ProductList results={this.state.results} />
       </div>
     );

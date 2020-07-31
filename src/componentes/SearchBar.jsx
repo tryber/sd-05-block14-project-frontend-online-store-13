@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../services/api';
 import ProductList from './ProductList';
 
-class Card5 extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,15 +17,17 @@ class Card5 extends Component {
   //     filter: event.target.value === '' ? 'all' : event.target.value
   //   })
   // }
-  pesquisar() {
-    api.getProductsFromCategoryAndQuery(false, this.state.results)
-    .then((aux) => {
-      this.setState({ results: aux.results });
-    });
+  async pesquisar() {
+    await api.getProductsFromCategoryAndQuery(this.state.search).then((aux) =>
+      this.setState({ results: aux.results }),
+    );
   }
   render() {
     return (
       <div>
+        <p data-testid="home-initial-message">
+        Digite algum termo de pesquisa ou escolha uma categoria.
+        </p>
         <input
           onChange={(event) => this.setState({ search: event.target.value })}
           type="text"
@@ -38,4 +40,4 @@ class Card5 extends Component {
   }
 
 }
-export default Card5;
+export default SearchBar;

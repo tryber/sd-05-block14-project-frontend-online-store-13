@@ -15,9 +15,6 @@ class CarrinhoVazio extends React.Component {
           />
         </div>
         <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>
-        <p data-testid="home-initial-message">
-        Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from './Image';
 import '../css/Carrinho.css';
 
-class CarrinhoHeader extends React.Component {
+class CartHeader extends React.Component {
   render() {
     return (
       <div>
@@ -24,4 +24,4 @@ class CarrinhoHeader extends React.Component {
   }
 }
 
-export default CarrinhoHeader;
+export default CartHeader;

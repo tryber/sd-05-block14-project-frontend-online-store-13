@@ -14,8 +14,8 @@ class APICategories extends React.Component {
   componentDidMount() {
     api.getCategories().then((categorias) => this.setState({ myCateg: categorias }));
   }
-  searchCat() {
-    api.getProductsFromCategoryAndQuery(this.state.search).then((data) =>
+  async searchCat() {
+    await api.getProductsFromCategoryAndQuery(false, this.state.search).then((data) =>
       this.setState({ results: data.results }),
     );
   }
@@ -30,11 +30,11 @@ class APICategories extends React.Component {
               id={cat.id}
               name="categoria"
               value={cat.id}
-              onChange={(event) => {
-                this.setState({ search: event.target.value });
-                this.searchCat();
+              onClick={(aux) => {
+                this.setState({ search: aux.target.value });
+              }}
+              onChange={() => this.searchCat()
               }
-            }
             />
             <label htmlFor={cat.id}>{cat.name}</label>
           </p>

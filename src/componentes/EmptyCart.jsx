@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from './Image';
-import CarrinhoHeader from './CarrinhoHeader';
+import CartHeader from './CartHeader';
 import '../css/Carrinho.css';
 
-class CarrinhoVazio extends React.Component {
+class EmptyCart extends React.Component {
   render() {
     return (
       <div>
-        <CarrinhoHeader />
+        <CartHeader />
         <div className="vazio">
           <Image
             src="https://cdn.icon-icons.com/icons2/38/PNG/512/emptybox_5117.png"
@@ -20,4 +20,4 @@ class CarrinhoVazio extends React.Component {
   }
 }
 
-export default CarrinhoVazio;
+export default EmptyCart;

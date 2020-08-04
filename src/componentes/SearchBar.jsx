@@ -1,6 +1,10 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as api from '../services/api';
 import ProductList from './ProductList';
+import APICategories from './Requisito4';
+import '../css/SearchBar.css';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -20,6 +24,7 @@ class SearchBar extends Component {
 
   async pesquisar() {
     await api
+      // eslint-disable-next-line react/destructuring-assignment
       .getProductsFromCategoryAndQuery(this.state.search)
       .then((aux) => this.setState({ results: aux.results }));
   }
@@ -42,6 +47,18 @@ class SearchBar extends Component {
         >
           PESQUISAR
         </button>
+        <Link to="/shopping-cart" data-testid="shopping-cart-button">
+          <img
+            src="https://image.flaticon.com/icons/svg/1170/1170678.svg"
+            alt="icone de carrinho"
+            className="cart-icon"
+          />
+        </Link>
+        <div className="content-container">
+          <div className="categories-container">
+            <APICategories />
+          </div>
+        </div>
         <ProductList results={this.state.results} />
       </div>
     );

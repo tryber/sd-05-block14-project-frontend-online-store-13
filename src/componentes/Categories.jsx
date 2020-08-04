@@ -13,6 +13,9 @@ class APICategories extends React.Component {
   }
   componentDidMount() {
     api.getCategories().then((categorias) => this.setState({ myCateg: categorias }));
+    api.getProductsFromCategoryAndQuery(false, false)
+      .then((data) => this.setState({ results: data.results }),
+    );
   }
   searchCat(targetCod) {
     const parameterCod = targetCod.target.value;

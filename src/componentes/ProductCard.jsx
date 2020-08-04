@@ -19,7 +19,7 @@ class ProductCard extends React.Component {
         </button>
         <Link
           data-testid="product-detail-link"
-          to={`/details/${product.id}/${product.title}`}
+          to="item-details"
         >
           Detalhes
         </Link>

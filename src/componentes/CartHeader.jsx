@@ -1,16 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Image from './Image';
 import '../css/Carrinho.css';
 
-class CarrinhoHeader extends React.Component {
+class CartHeader extends React.Component {
   render() {
     return (
       <div>
         <div className="setinha">
-          <Image
-            src="https://icon-icons.com/icons2/2036/PNG/32/curve_left_arrow_icon_124203.png"
-            alt="ícone voltar"
-          />
+          <Link to="/"><img src="https://icon-icons.com/icons2/2036/PNG/32/curve_left_arrow_icon_124203.png" alt="imagem de seta para voltar" /></Link>
         </div>
         <div data-testid="shopping-cart-button" className="carrinho">
           <Image
@@ -24,4 +22,4 @@ class CarrinhoHeader extends React.Component {
   }
 }
 
-export default CarrinhoHeader;
+export default CartHeader;

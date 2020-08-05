@@ -33,7 +33,8 @@ class SearchBar extends Component {
     return (
       <div>
         <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
+          Digite algum termo de pesquisa ou
+          escolha uma categoria.
         </p>
         <input
           onChange={(event) => this.setState({ search: event.target.value })}

@@ -59,7 +59,9 @@ class SearchBar extends Component {
             <APICategories />
           </div>
         </div>
-        <ProductList results={this.state.results} />
+        <div className="items-container">
+          <ProductList results={this.state.results} />
+        </div>
       </div>
     );
   }

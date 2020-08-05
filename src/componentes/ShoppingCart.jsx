@@ -1,11 +1,11 @@
 import React from 'react';
 import EmptyCart from './EmptyCart';
-import ProductCard from './ProductCard';
+import ItemShoppingCart from './ItemShoppingCart';
 
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { products: null };
+    this.state = { items: null };
     this.getItems = this.getItems.bind(this);
   }
 
@@ -15,11 +15,11 @@ class ShoppingCart extends React.Component {
 
   getItems() {
     const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
-    this.setState({ products: shoppingCart });
+    this.setState({ items: shoppingCart });
   }
 
   render() {
-    const { products: items } = this.state;
+    const { items } = this.state;
 
     if (!items) {
       return (
@@ -31,7 +31,7 @@ class ShoppingCart extends React.Component {
     return (
       <div>
         {items.map((item) => (
-          <ProductCard key={item.id} item={item} />
+          <ItemShoppingCart key={item.id} item={item} />
         ))}
       </div>
     );

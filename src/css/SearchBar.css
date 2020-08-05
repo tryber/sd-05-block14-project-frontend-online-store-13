@@ -6,21 +6,26 @@
 }
 
 .items-container {
-  border: solid 3px black;
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  margin: 10px;
-  min-width: 70%;
+  bottom: 1100px;
+  margin-top: 50px;
+  min-width: 30%;
+  position: relative;
   text-align: center;
 }
 
+input {
+  margin-left: 32%;
+  margin-top: 20px;
+  width: 300px;
+}
+
 .categories-container {
-  border: solid 3px black;
   border-radius: 6px;
+  border: solid 3px black;
   display: flex;
   height: 100%;
-  margin: 10px;
+  justify-content: center;
+  margin-left: 50px;
   min-width: 20%;
 }
 

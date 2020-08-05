@@ -33,26 +33,21 @@ class SearchBar extends Component {
     return (
       <div>
         <p data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou
-          escolha uma categoria.
+          Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         <input
           onChange={(event) => this.setState({ search: event.target.value })}
           type="text"
           data-testid="query-input"
         />
-        <button
-          type="button"
-          onClick={() => this.pesquisar()}
-          data-testid="query-button"
-        >
+        <button onClick={() => this.pesquisar()} data-testid="query-button">
           PESQUISAR
         </button>
         <Link to="/shopping-cart" data-testid="shopping-cart-button">
           <img
             src="https://image.flaticon.com/icons/svg/1170/1170678.svg"
-            alt="icone de carrinho"
             className="cart-icon"
+            alt="ícone carrinho"
           />
         </Link>
         <div className="content-container">

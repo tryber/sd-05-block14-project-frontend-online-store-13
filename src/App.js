@@ -4,7 +4,7 @@ import CarrinhoVazio from './componentes/CarrinhoVazio';
 import Categories from './componentes/Categories';
 import SearchBar from './componentes/SearchBar';
 import ProductList from './componentes/ProductList';
-import './App.css';
+import './index.css';
 import * as api from './services/api';
 
 class App extends React.Component {

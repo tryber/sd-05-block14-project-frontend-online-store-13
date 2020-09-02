@@ -1,45 +1,39 @@
 import React from 'react';
-import * as api from '../services/api';
-import ProductList from './ProductList';
+// import * as api from '../services/api';
+// import ProductList from './ProductList';
 
 class APICategories extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       results: [],
-      search: '',
+      catId: '',
     };
-    this.searchCat = this.searchCat.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-  componentDidMount() {
-    api.getCategories().then((categorias) => this.setState({ myCateg: categorias }));
-    api.getProductsFromCategoryAndQuery(false, false)
-      .then((data) => this.setState({ results: data.results }),
-    );
-  }
-  searchCat(targetCod) {
-    const parameterCod = targetCod.target.value;
-    api.getProductsFromCategoryAndQuery(false, parameterCod)
-      .then((data) => this.setState({ results: data.results }),
-    );
+  handleClick(event) {
+    const { fullfill } = this.props;
+    this.setState({ catId: event.target.id });
+    localStorage.setItem('CatID', event.target.id);
+    fullfill();
   }
   render() {
-    const { myCateg } = this.state;
+    const { myCateg } = this.props;
     return myCateg ? (
       <div>
         {myCateg.map((cat) => (
-          <p key={cat.id} data-testid="category">
+          <p key={cat.id}>
             <input
               type="radio"
               id={cat.id}
               name="categoria"
               value={cat.id}
-              onClick={(searchCod) => { this.searchCat(searchCod); }}
+              onClick={this.handleClick}
+              data-testid="category"
             />
             <label htmlFor={cat.id}>{cat.name}</label>
           </p>
         ))}
-        <ProductList results={this.state.results} />
       </div>
     ) : (
       <div>
@@ -48,4 +42,5 @@ class APICategories extends React.Component {
     );
   }
 }
+
 export default APICategories;

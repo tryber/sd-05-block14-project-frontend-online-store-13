@@ -1,43 +1,36 @@
 import React, { Component } from 'react';
-import * as api from '../services/api';
-import ProductList from './ProductList';
+// import * as api from '../services/api';
+// import ProductList from './ProductList';
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: 'all',
       results: [],
       search: '',
     };
-    this.pesquisar = this.pesquisar.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
-   // setFilterValue = event => {
-  //   this.setState({
-  //     filter: event.target.value === '' ? 'all' : event.target.value
-  //   })
-  // }
-  async pesquisar() {
-    await api.getProductsFromCategoryAndQuery(this.state.search).then((aux) =>
-      this.setState({ results: aux.results }),
-    );
+  handleClick() {
+    const { search } = this.state;
+    const { searchQuery } = this.props;
+    localStorage.setItem('Textsearch', search);
+    searchQuery();
   }
   render() {
+    // const { search } = this.state;
     return (
       <div>
-        <p data-testid="home-initial-message">
-        Digite algum termo de pesquisa ou escolha uma categoria.
-        </p>
         <input
           onChange={(event) => this.setState({ search: event.target.value })}
           type="text"
           data-testid="query-input"
         />
-        <button onClick={() => this.pesquisar()}data-testid="query-button">PESQUISAR</button>
-        <ProductList results={this.state.results} />
+        <button onClick={this.handleClick} data-testid="query-button">
+          PESQUISAR
+        </button>
       </div>
     );
   }
-
 }
 export default SearchBar;

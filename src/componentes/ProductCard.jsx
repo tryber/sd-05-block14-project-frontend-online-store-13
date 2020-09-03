@@ -17,14 +17,14 @@ class ProductCard extends React.Component {
   addCart() {
     const { product, cart } = this.props;
     // console.log(cart);
-    const quantidadecheck = indexFinder(cart, product.id);
+    const qChec = indexFinder(cart, product.id);
 
-    console.log(quantidadecheck);
-    if (quantidadecheck === -1) {
+    console.log(qChec);
+    if (qChec === -1) {
       product.qnt = 1;
       cart.push(product);
-    } else {
-      cart[quantidadecheck].qnt += 1;
+    } else if (qChec >= 0 && cart[qChec].qnt < product.available_quantity) {
+      cart[qChec].qnt += 1;
     }
     localStorage.setItem('Mycart', JSON.stringify(cart));
   }
@@ -35,6 +35,7 @@ class ProductCard extends React.Component {
         <p>{product.title}</p>
         <img src={product.thumbnail} alt={product.title} />
         <p>{product.price}</p>
+        {product.shipping.free_shipping && <p data-testid="free-shipping">Frete Gratis</p>}
         <Link to="/details">
           <button data-testid="product-detail-link" onClick={this.handleClick}>
             Ver detalhes

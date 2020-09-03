@@ -16,7 +16,7 @@ class ProductDetails extends React.Component {
     if (checkQnt === -1) {
       product.qnt = 1;
       cart.push(product);
-    } else {
+    } else if (checkQnt >= 0 && cart[checkQnt].qnt < product.available_quantity) {
       cart[checkQnt].qnt += 1;
     }
     localStorage.setItem('Mycart', JSON.stringify(cart));

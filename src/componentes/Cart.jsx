@@ -15,8 +15,11 @@ class Cart extends React.Component {
   handAdd(event) {
     const { cart } = this.state;
     const newCart = [...cart];
-    const addFinder = indexFinder(newCart, event.target.id);
-    newCart[addFinder].qnt += 1;
+    const targetID = event.target.id;
+    const addFinder = indexFinder(newCart, targetID);
+    if (newCart[addFinder].qnt < newCart[addFinder].available_quantity) {
+      newCart[addFinder].qnt += 1;
+    }
     this.setState({ cart: newCart });
     localStorage.setItem('Mycart', JSON.stringify(newCart));
   }

@@ -43,6 +43,8 @@ class ProductDetails extends React.Component {
             <p data-testid="product-detail-name">{product.title}</p>
             <textarea data-testid="product-detail-evaluation" />
           </div>
+          {/* <p data-testid="shopping-cart-size">
+          {cart.reduce((tot, item) => tot + item.qnt, 0)}</p> */}
         </div>
       );
     }

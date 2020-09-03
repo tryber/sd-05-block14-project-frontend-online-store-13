@@ -9,8 +9,8 @@ class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = { cart: JSON.parse(localStorage.getItem('Mycart')) };
-    this.handleClickAdd = this.handAdd.bind(this);
-    this.handleClickSub = this.handSub.bind(this);
+    this.handAdd = this.handAdd.bind(this);
+    this.handSub = this.handSub.bind(this);
   }
   handAdd(event) {
     const { cart } = this.state;

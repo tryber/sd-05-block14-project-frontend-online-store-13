@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 
 class ProductList extends React.Component {
   render() {
-    const { resQ } = this.props;
+    const { resQ, cart } = this.props;
     if (resQ.results === undefined) {
       return (
         <div data-testid="home-initial-message">
@@ -14,7 +14,7 @@ class ProductList extends React.Component {
     return (
       <div className="product-list">
         {resQ.results.map((product) => (
-          <ProductCard product={product} key={product.id} />
+          <ProductCard product={product} key={product.id} cart={cart} />
         ))}
       </div>
     );

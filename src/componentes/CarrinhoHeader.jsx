@@ -8,7 +8,7 @@ class CarrinhoHeader extends React.Component {
       <div>
         <div className="setinha">
           <Image
-            src="https://icon-icons.com/icons2/2036/PNG/32/curve_left_arrow_icon_124203.png"
+            src=""
             alt="ícone voltar"
           />
         </div>

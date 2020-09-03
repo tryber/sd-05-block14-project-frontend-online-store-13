@@ -1,5 +1,6 @@
 import React from 'react';
-import CarrinhoVazio from './CarrinhoVazio';
+import { Link } from 'react-router-dom';
+// import Cart from './Cart';
 import Categories from './Categories';
 import SearchBar from './SearchBar';
 import ProductList from './ProductList';
@@ -14,6 +15,8 @@ class Home extends React.Component {
       value: null,
       query: null,
       results: [],
+      cartSize: 0,
+      cart: [],
     };
     this.searchQuery = this.searchQuery.bind(this);
     this.searchCateg = this.searchCateg.bind(this);
@@ -36,24 +39,20 @@ class Home extends React.Component {
       .then((data) => this.setState({ results: data }));
   }
 
-  // genericSearch(query,category){
-  //   const {category, query } = this.state;
-  //   const retSearch = await api.getProductsFromCategoryAndQuery(query,category)
-  //   this.setState({ results: retSearch });
-  // }
   render() {
-    const { myCateg, results } = this.state;
+    const { myCateg, results, cart } = this.state;
+    console.log(cart);
     return (
       <div className="all">
         <div className="bloco1">
           <SearchBar searchQuery={this.searchQuery} />
-          <CarrinhoVazio />
+          <Link to="/cart" data-testid="shopping-cart-button">Cart</Link>
         </div>
         <div className="bloco2">
           <Categories myCateg={myCateg} fullfill={this.searchQuery} />
           <div className="produtos">
             {/* <Route exact path='/' component={ProductList } /> */}
-            <ProductList resQ={results} />
+            <ProductList resQ={results} cart={cart} />
           </div>
         </div>
       </div>

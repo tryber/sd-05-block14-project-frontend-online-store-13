@@ -11,7 +11,7 @@ class Cart extends React.Component {
   }
   render() {
     const { cart } = this.state;
-    if (localStorage.Mycart !== null) {
+    if (localStorage.Mycart !== undefined) {
       console.log(this.state.cart);
       return (
         <div>

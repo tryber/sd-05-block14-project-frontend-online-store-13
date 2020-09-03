@@ -12,15 +12,17 @@ class Cart extends React.Component {
   render() {
     const { cart } = this.state;
     if (localStorage.Mycart !== undefined) {
-      console.log(this.state.cart);
       return (
         <div>
           {cart.map((elements) => (
-            <p data-testid="shopping-cart-product-name">{elements.title}</p>
+            <div>
+              <p data-testid="shopping-cart-product-name">{elements.title}</p>
+              <p>{elements.price}</p>
+              <button data-testid="product-increase-quantity">+</button>
+              <button data-testid="product-decreate-quantity">-</button>
+            </div>
           ))}
-          <p data-testid="shopping-cart-product-quantity">
-            Total de items:{cart.length}
-          </p>
+          <p data-testid="shopping-cart-product-quantity">{cart.length}</p>
         </div>
       );
     }

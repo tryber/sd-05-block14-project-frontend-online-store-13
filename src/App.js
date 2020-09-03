@@ -8,6 +8,7 @@ import ProductDetails from './componentes/Productdetails';
 import './index.css';
 import Home from './componentes/Home';
 import Cart from './componentes/Cart';
+import Checkout from './componentes/Checkout';
 import * as api from './services/api';
 
 class App extends React.Component {
@@ -62,6 +63,7 @@ class App extends React.Component {
             render={(props) => <ProductDetails {...this.state} {...props} />}
           />
           <Route exact path="/cart" render={(props) => <Cart {...props} />} />
+          <Route path="/checkout" component={Checkout} />
         </Switch>
       </Router>
     );

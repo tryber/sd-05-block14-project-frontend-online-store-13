@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import ProductDetails from './Productdetails';
+import indexFinder from '../services/indexFinder';
 
 class ProductCard extends React.Component {
   constructor(props) {
@@ -15,8 +16,16 @@ class ProductCard extends React.Component {
   }
   addCart() {
     const { product, cart } = this.props;
-    console.log(cart);
-    cart.push(product);
+    // console.log(cart);
+    const quantidadecheck = indexFinder(cart, product.id);
+
+    console.log(quantidadecheck);
+    if (quantidadecheck === -1) {
+      product.qnt = 1;
+      cart.push(product);
+    } else {
+      cart[quantidadecheck].qnt += 1;
+    }
     localStorage.setItem('Mycart', JSON.stringify(cart));
   }
   render() {

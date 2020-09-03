@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import indexFinder from '../services/indexFinder';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -10,9 +11,17 @@ class ProductDetails extends React.Component {
   cartAdd() {
     const { product } = this.state;
     const { cart } = this.props;
-    cart.push(product);
+    const checkQnt = indexFinder(cart, product.id);
+    console.log(checkQnt);
+    if (checkQnt === -1) {
+      product.qnt = 1;
+      cart.push(product);
+    } else {
+      cart[checkQnt].qnt += 1;
+    }
     localStorage.setItem('Mycart', JSON.stringify(cart));
   }
+
   render() {
     const { product } = this.state;
     if (this.state.product !== null) {
@@ -22,7 +31,7 @@ class ProductDetails extends React.Component {
             data-testid="product-detail-add-to-cart"
             onClick={this.cartAdd}
           >
-            clique aqui
+            Adicionar
           </button>
           <Link to="/">
             <button>voltar</button>
@@ -32,6 +41,7 @@ class ProductDetails extends React.Component {
           </Link>
           <div>
             <p data-testid="product-detail-name">{product.title}</p>
+            <textarea data-testid="product-detail-evaluation" />
           </div>
         </div>
       );

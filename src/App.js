@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProductDetails from './componentes/Productdetails';
 import './index.css';
 import Home from './componentes/Home';
-import Cart from './componentes/Cart'
+import Cart from './componentes/Cart';
 // import * as api from './services/api';
 
 class App extends React.Component {
